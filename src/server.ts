@@ -3,10 +3,12 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import cors from "cors"
 import connectToDB from "./config/database";
+import helmet from "helmet";
 
 dotenv.config();
 const app:Application = express()
 
+app.use(helmet())
 app.use(cors({
     origin: process.env.ALLOWED_ORIGINS,
     credentials: true
